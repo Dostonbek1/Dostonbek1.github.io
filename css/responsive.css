@@ -2,6 +2,9 @@
 /*-- responsive design --*/
 
 @media (max-width:1920px) {
+	.w3l-banner {
+		height:800px;
+	}
 }
 @media (max-width:1680px) {
 }
