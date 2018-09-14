@@ -50,7 +50,7 @@ a:focus {
 }
 
 #sidebar {
-    min-width: 250px;
+    min-width: 290px;
     max-width: 250px;
     background: rgb(40, 75, 212);
     color: #fff;
@@ -73,7 +73,7 @@ a:focus {
 }
 
 #sidebar ul li a {
-    padding: 20px;
+    padding: 15px 20px;
     font-size: 1.1em;
     display: block;
 }
@@ -81,6 +81,16 @@ a:focus {
 #sidebar ul li a:hover {
     color: rgb(40, 75, 212);
     background: #fff;
+}
+
+#sidebar ul li a div {
+    border:2px solid white;
+    border-radius: 50%;
+    padding:8px;
+    margin-right:12px;
+    display: inline-block;
+    width: 46px;
+    height: 46px;
 }
 
 #sidebar ul li.active>a,
@@ -215,14 +225,16 @@ a.article:hover {
 .dropbtn {
     background-color: #3498DB;
     color: white;
-    padding: 8px 10px;
-    font-size: 16px;
+    padding: 5px 10px;
+    font-size: 18px;
     border: none;
     cursor: pointer;
+    border-radius: 7%;
 }
 
 .dropbtn:hover, .dropbtn:focus {
-    background-color: #2980B9;
+    background-color: white;
+    color: #3498DB;
 }
 
 .dropdown {
