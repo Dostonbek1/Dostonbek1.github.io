@@ -313,7 +313,7 @@ a.article:hover {
 
 .portlet-content {
     margin: .5rem;
-    margin-right: 0;
+    /* margin-right: 0; */
     border-radius: 5px;
     padding: .5rem;
     background-color: rgb(0, 90, 133);
@@ -333,6 +333,6 @@ a.article:hover {
     INDIVIDUAL PORTLETS
 --------------------------------------------------------- */
 
-.campus-event-digest-content{
+/* .campus-event-digest-content{
     margin-right: 0;
-}
+} */
