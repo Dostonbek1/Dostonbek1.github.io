@@ -2,9 +2,9 @@
 <html>
 <head>
     <title>Academics | myBerea</title>
-    
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <link rel="stylesheet" href="src/css/bootstrap-css/bootstrap-grid.css">
     <link rel="stylesheet" href="src/css/bootstrap-css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="src/css/bootstrap-css/bootstrap.css">
@@ -20,6 +20,38 @@
 </head>
 <body>
     <div class="wrapper">
+
+        <nav id="top-navbar" class="navbar navbar-expand-lg navbar-light fixed-top" >
+            <div class="container-fluid">
+
+                <button type="button" id="sidebarCollapse" class="navbar-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div id="berea-logo">
+                    <p>my<span>Berea</span></p>
+                </div>
+
+                <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" onclick="BurgerUserDropdown()">
+                    <i class="fas fa-align-justify"></i>
+                </button>
+
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="nav navbar-nav ml-auto"  >
+                        <li class="active" id="UserBurger">
+                            <div class="dropdown" style="float: right;">
+                                <button onclick="userDropdown()" class="dropbtn">User</button>
+                                <div id="myDropdown" class="dropdown-content">
+                                    <a href="#">Log out</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
         <!-- Sidebar  -->
         <nav id="sidebar">
             <ul class="list-unstyled components">
@@ -49,37 +81,6 @@
 
         <!-- Page Content  -->
         <div id="content">
-
-            <nav id="top-navbar" class="navbar navbar-expand-lg navbar-light">
-                <div class="container-fluid">
-
-                    <button type="button" id="sidebarCollapse" class="navbar-btn">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
-                    <div id="berea-logo">
-                        <p>my<span>Berea</span></p>
-                    </div>
-                    
-                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fas fa-align-justify"></i>
-                    </button>
-
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="nav navbar-nav ml-auto">
-                            <li class="active">
-                                <div class="dropdown">
-                                    <button onclick="userDropdown()" class="dropbtn">User</button>
-                                    <div id="myDropdown" class="dropdown-content">
-                                        <a href="#">Log out</a>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
 
             <div id="main-area">
                 <div class="container">
