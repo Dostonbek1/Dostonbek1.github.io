@@ -50,7 +50,7 @@ a:focus {
 }
 
 #sidebar {
-    min-width: 290px;
+    min-width: 310px;
     max-width: 250px;
     background: rgb(0, 90, 133);
     color: #fff;
@@ -59,7 +59,7 @@ a:focus {
 }
 
 #sidebar.active {
-    margin-left: -290px;
+    margin-left: -310px;
 }
 
 .extend-nav {
