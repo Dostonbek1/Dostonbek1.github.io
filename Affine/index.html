@@ -133,10 +133,11 @@
           names = names.split(" ");
 
           console.log(names);
-
+          var true_name = false;
           // Loop through the dataset and find the address corresponding to the given name
           for (var i=0; i<data.length; i++) {
             if (names[0] == data[i][2].toLowerCase() && names[1] == data[i][3].toLowerCase() && names[2] == data[i][4].toLowerCase() || names[0] == data[i][2].toLowerCase() && names[1] == data[i][4].toLowerCase()) {
+              true_name = true;
               var street = data[i][6]
               var city = data[i][8];
               var state = data[i][9];
@@ -144,6 +145,10 @@
               // Update the input field with the address of the given physician 
               document.getElementById("pac-input").value = address;
             } 
+          }
+          
+          if (true_name == false) {
+            alert("The name not found in the dataset. Please, try again!");
           }
 
           var places = searchBox.getPlaces();
