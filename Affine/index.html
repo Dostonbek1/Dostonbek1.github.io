@@ -1,204 +1,217 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <meta charset="utf-8">
-    <title>Places Search Box</title>
-    <style>
-      /* Always set the map height explicitly to define the size of the div
+
+<head>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+  <title>Places Search Box</title>
+  <style>
+    /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
-      #map {
-        height: 100%;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-      #description {
-        font-family: Roboto;
-        font-size: 15px;
-        font-weight: 300;
-      }
 
-      #infowindow-content .title {
-        font-weight: bold;
-      }
+    #map {
+      height: 100%;
+    }
 
-      #infowindow-content {
-        display: none;
-      }
+    /* Optional: Makes the sample page fill the window. */
 
-      #map #infowindow-content {
-        display: inline;
-      }
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
 
-      .pac-card {
-        margin: 10px 10px 0 0;
-        border-radius: 2px 0 0 2px;
-        box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        outline: none;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-        background-color: #fff;
-        font-family: Roboto;
-      }
+    #description {
+      font-family: Roboto;
+      font-size: 15px;
+      font-weight: 300;
+    }
 
-      #pac-container {
-        padding-bottom: 12px;
-        margin-right: 12px;
-      }
+    #infowindow-content .title {
+      font-weight: bold;
+    }
 
-      .pac-controls {
-        display: inline-block;
-        padding: 5px 11px;
-      }
+    #infowindow-content {
+      display: none;
+    }
 
-      .pac-controls label {
-        font-family: Roboto;
-        font-size: 13px;
-        font-weight: 300;
-      }
+    #map #infowindow-content {
+      display: inline;
+    }
 
-      #pac-input {
-        background-color: #fff;
-        font-family: Roboto;
-        font-size: 15px;
-        font-weight: 300;
-        margin-left: 12px;
-        padding: 0 11px 0 13px;
-        text-overflow: ellipsis;
-        width: 400px;
-      }
+    .pac-card {
+      margin: 10px 10px 0 0;
+      border-radius: 2px 0 0 2px;
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      outline: none;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      background-color: #fff;
+      font-family: Roboto;
+    }
 
-      #pac-input:focus {
-        border-color: #4d90fe;
-      }
+    #pac-container {
+      padding-bottom: 12px;
+      margin-right: 12px;
+    }
 
-      #title {
-        color: #fff;
-        background-color: #4d90fe;
-        font-size: 25px;
-        font-weight: 500;
-        padding: 6px 12px;
-      }
-      #target {
-        width: 345px;
-      }
-    </style>
-  </head>
-  <body>
-    <input id="pac-input" class="controls" type="text" placeholder="First Middle Last OR Address e.g. Steven H Ryder" >
-    <div id="map"></div>
+    .pac-controls {
+      display: inline-block;
+      padding: 5px 11px;
+    }
 
-    <script src="jquery-3.3.1.js"></script>
-    <script src="jquery.csv.js"></script>
-    <script src="get_data.js"></script>
-    <script>
-      // This example adds a search box to a map, using the Google Place Autocomplete
-      // feature. People can enter a physician's FIRST MIDDLE LAST name or geographical searches. The search box will return a
-      // pick list containing a mix of places and predicted search terms.
+    .pac-controls label {
+      font-family: Roboto;
+      font-size: 13px;
+      font-weight: 300;
+    }
 
-      // This example requires the Places library. Include the libraries=places
-      // parameter when you first load the API. For example:
-      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
-       
-      function initAutocomplete() {
-        console.log("this is initAuto")
-        var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 41.850033, lng: -87.6500523},
-          zoom: 4,
-          mapTypeId: 'roadmap'
+    #pac-input {
+      background-color: #fff;
+      font-family: Roboto;
+      font-size: 15px;
+      font-weight: 300;
+      margin-left: 12px;
+      padding: 0 11px 0 13px;
+      text-overflow: ellipsis;
+      width: 400px;
+    }
+
+    #pac-input:focus {
+      border-color: #4d90fe;
+    }
+
+    #title {
+      color: #fff;
+      background-color: #4d90fe;
+      font-size: 25px;
+      font-weight: 500;
+      padding: 6px 12px;
+    }
+
+    #target {
+      width: 345px;
+    }
+  </style>
+</head>
+
+<body>
+  <input id="pac-input" class="controls" type="text" placeholder="First Middle Last OR Address e.g. Steven H Ryder">
+  <div id="map"></div>
+
+  <script src="jquery-3.3.1.js"></script>
+  <script src="jquery.csv.js"></script>
+  <script src="get_data.js"></script>
+  <script>
+    // This example adds a search box to a map, using the Google Place Autocomplete
+    // feature. People can enter a physician's FIRST MIDDLE LAST name or geographical searches. The search box will return a
+    // pick list containing a mix of places and predicted search terms.
+
+    // This example requires the Places library. Include the libraries=places
+    // parameter when you first load the API. For example:
+    // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+    function initAutocomplete() {
+      console.log("this is initAuto")
+      var map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: 41.850033, lng: -87.6500523 },
+        zoom: 4,
+        mapTypeId: 'roadmap'
+      });
+
+      // Create the search box and link it to the UI element.
+      var input = document.getElementById('pac-input');
+      var searchBox = new google.maps.places.SearchBox(input);
+      map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+      // Bias the SearchBox results towards current map's viewport.
+      //map.addListener('bounds_changed', function() {
+      //  searchBox.setBounds(map.getBounds());
+      //});
+
+      var markers = [];
+      // Listen for the event fired when the user selects a prediction and retrieve
+      // more details for that place.
+
+      searchBox.addListener('places_changed', function () {
+        // Take the value from the input field
+        var names = document.getElementById("pac-input").value.toLowerCase();
+        // Parse it into an array of substrings; delimeter is space
+        names = names.split(" ");
+
+        console.log(names);
+        var true_name = false;
+        // Loop through the dataset and find the address corresponding to the given name
+        for (var i = 0; i < data.length; i++) {
+          if (names[0] == data[i][2].toLowerCase() && names[1] == data[i][3].toLowerCase() && names[2] == data[i][4].toLowerCase() || names[0] == data[i][2].toLowerCase() && names[1] == data[i][4].toLowerCase()) {
+            true_name = true;
+            var street = data[i][6]
+            console.log(street);
+            var city = data[i][8];
+            console.log(city);
+            var state = data[i][9];
+            console.log(state);
+            var address = street + ", " + city + ", " + state;
+            console.log(address);
+            // Update the input field with the address of the given physician 
+            document.getElementById("pac-input").value = address;
+          }
+        }
+
+        if (true_name == false) {
+          alert("The name not found in the dataset, or you tried an actual address. Hit 'OK' to try a different name or to see the address, if it is an address you've given.");
+        }
+
+        var places = searchBox.getPlaces();
+
+        if (places.length == 0) {
+          return;
+        }
+
+        // Clear out the old markers.
+        markers.forEach(function (marker) {
+          marker.setMap(null);
         });
+        markers = [];
 
-        // Create the search box and link it to the UI element.
-        var input = document.getElementById('pac-input');
-        var searchBox = new google.maps.places.SearchBox(input);
-        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-
-        // Bias the SearchBox results towards current map's viewport.
-        //map.addListener('bounds_changed', function() {
-        //  searchBox.setBounds(map.getBounds());
-        //});
-
-        var markers = [];
-        // Listen for the event fired when the user selects a prediction and retrieve
-        // more details for that place.
-
-        searchBox.addListener('places_changed', function() {
-          // Take the value from the input field
-          var names = document.getElementById("pac-input").value.toLowerCase();
-          // Parse it into an array of substrings; delimeter is space
-          names = names.split(" ");
-
-          console.log(names);
-          var true_name = false;
-          // Loop through the dataset and find the address corresponding to the given name
-          for (var i=0; i<data.length; i++) {
-            if (names[0] == data[i][2].toLowerCase() && names[1] == data[i][3].toLowerCase() && names[2] == data[i][4].toLowerCase() || names[0] == data[i][2].toLowerCase() && names[1] == data[i][4].toLowerCase()) {
-              true_name = true;
-              var street = data[i][6]
-              var city = data[i][8];
-              var state = data[i][9];
-              var address = street + ", " + city + ", " + state;
-              // Update the input field with the address of the given physician 
-              document.getElementById("pac-input").value = address;
-            } 
-          }
-          
-          if (true_name == false) {
-            alert("The name not found in the dataset. Please, try again!");
-          }
-
-          var places = searchBox.getPlaces();
-          
-          if (places.length == 0) {
+        // For each place, get the icon, name and location.
+        var bounds = new google.maps.LatLngBounds();
+        places.forEach(function (place) {
+          if (!place.geometry) {
+            console.log("Returned place contains no geometry");
             return;
           }
+          var icon = {
+            url: place.icon,
+            size: new google.maps.Size(71, 71),
+            origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(17, 34),
+            scaledSize: new google.maps.Size(25, 25)
+          };
 
-          // Clear out the old markers.
-          markers.forEach(function(marker) {
-            marker.setMap(null);
-          });
-          markers = [];
+          // Create a marker for each place.
+          markers.push(new google.maps.Marker({
+            map: map,
+            icon: icon,
+            title: place.name,
+            position: place.geometry.location
+          }));
 
-          // For each place, get the icon, name and location.
-          var bounds = new google.maps.LatLngBounds();
-          places.forEach(function(place) {
-            if (!place.geometry) {
-              console.log("Returned place contains no geometry");
-              return;
-            }
-            var icon = {
-              url: place.icon,
-              size: new google.maps.Size(71, 71),
-              origin: new google.maps.Point(0, 0),
-              anchor: new google.maps.Point(17, 34),
-              scaledSize: new google.maps.Size(25, 25)
-            };
-
-            // Create a marker for each place.
-            markers.push(new google.maps.Marker({
-              map: map,
-              icon: icon,
-              title: place.name,
-              position: place.geometry.location
-            }));
-
-            if (place.geometry.viewport) {
-              // Only geocodes have viewport.
-              bounds.union(place.geometry.viewport);
-            } else {
-              bounds.extend(place.geometry.location);
-            }
-          });
-          map.fitBounds(bounds);
+          if (place.geometry.viewport) {
+            // Only geocodes have viewport.
+            bounds.union(place.geometry.viewport);
+          } else {
+            bounds.extend(place.geometry.location);
+          }
         });
-      }
+        map.fitBounds(bounds);
+      });
+    }
 
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC98cUTt1WqKNWz_gOgB606gONGoBmbBxw&libraries=places&callback=initAutocomplete"
-         async defer></script>
-  </body>
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC98cUTt1WqKNWz_gOgB606gONGoBmbBxw&libraries=places&callback=initAutocomplete"
+    async defer></script>
+</body>
+
 </html>
